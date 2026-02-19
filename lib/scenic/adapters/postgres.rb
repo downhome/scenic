@@ -58,7 +58,7 @@ module Scenic
       #
       # @return [void]
       def create_view(name, sql_definition)
-        execute "CREATE VIEW #{quote_table_name(name)} AS #{sql_definition};"
+        execute "CREATE VIEW #{quote_table_name(name)} WITH (security_invoker = true) AS #{sql_definition};"
       end
 
       # Updates a view in the database.
